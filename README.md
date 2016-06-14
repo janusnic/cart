@@ -1,287 +1,400 @@
 # cart
  
-#2 Product Index View 
+#3 MongoDB / Mongoose Setup 
 
-partials/header.hbs
+https://www.mongodb.com/
+
+Building on the Best of Relational with the Innovations of NoSQL
 
 
 
-http://getbootstrap.com/components/
+Getting Started with MongoDB (MongoDB Shell Edition)
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
+On this page
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    Overview
+    Available Editions
+    Additional Information
 
- npm install --save express-handlebars
+Overview
 
-    └── asap@2.0.4 
-└─┬ hbs@3.1.1
-  └─┬ handlebars@3.0.0
-    └─┬ uglify-js@2.3.6
-      └── async@0.2.10 
+Welcome to the Getting Started with MongoDB guide. This guide provides instructions to get you started using MongoDB. The guide covers the following topics:
+
+    Introduction to MongoDB as well as instructions to Import Example Dataset;
+    A brief overview of the MongoDB Shell (mongo);
+    Basic Insert, Find, Update, Remove operations plus Aggregation;
+    Instructions on creating Indexes to improve query performance.
+
+The MongoDB Shell Edition of this guide also includes instructions for installing MongoDB.
+Available Editions
+
+This is the MongoDB Shell (mongo) edition of the guide. The Getting Started guide is available in the following editions:
+
+    MongoDB Shell (mongo) Edition (this edition)
+    Python Edition
+    Node.JS Edition
+    C++ Edition
+    Java Edition
+    C# Edition
+
+Additional Information
+
+For more information, see:
+
+    The MongoDB Manual for a comprehensive documentation of MongoDB
+    MongoDB University: Free, Online Courses for Developers and DBAs
+    MongoDB Architecture Guide
+    MongoDB Administration 101 Presentation
+    Attend an upcoming MongoDB event or webinar
+    For information on MongoDB licensing, see MongoDB Licensing.
+
+
+mongod
+Программа 'mongod' на данный момент не установлена. Вы можете установить её, выполнив:
+sudo apt-get install mongodb-server
+janus@janus-P55-US3L ~/github/cart $ ^C
+janus@janus-P55-US3L ~/github/cart $ sudo apt-get install mongodb-server
+
+Install MongoDB Community Edition on Linux
+
+On this page
+
+    Recommended
+    Manual Installation
+
+These documents provide instructions to install MongoDB Community Edition for various Linux systems.
+
+Note
+
+Starting in MongoDB 3.2, 32-bit binaries are deprecated and will be unavailable in future releases.
+Recommended
+
+For the best installation experience, MongoDB provides packages for popular Linux distributions. These packages, which support specific platforms and provide improved performance and TLS/SSL support, are the preferred way to run MongoDB. The following guides detail the installation process for these systems:
+
+Install on Red Hat
+    Install MongoDB Community Edition on Red Hat Enterprise and related Linux systems using .rpm packages.
+Install on SUSE
+    Install MongoDB Community Edition on SUSE Linux systems using .rpm packages.
+Install on Amazon
+    Install MongoDB Community Edition on Amazon Linux AMI systems using .rpm packages.
+Install on Ubuntu
+    Install MongoDB Community Edition on Ubuntu Linux systems using .deb packages.
+Install on Debian
+    Install MongoDB Community Edition on Debian systems using .deb packages.
+
+For systems without supported packages, refer to the Manual Installation tutorial.
+Manual Installation
+
+For Linux systems without supported packages, MongoDB provides a generic Linux release. These versions of MongoDB don’t include TLS/SSL, and may not perform as well as the targeted packages, but are compatible on most contemporary Linux systems. See the following guides for installation:
+
+Install From Tarball
+    Install MongoDB Community Edition on other Linux systems from MongoDB archives. 
+
+
+
+Install MongoDB Community Edition on Ubuntu
+
+On this page
+
+    Overview
+    Packages
+    Init Scripts
+    Install MongoDB Community Edition
+    Run MongoDB Community Edition
+
+Overview
+
+Use this tutorial to install MongoDB Community Edition on LTS Ubuntu Linux systems from .deb packages. While Ubuntu includes its own MongoDB packages, the official MongoDB Community Edition packages are generally more up-to-date.
+
+Platform Support
+
+MongoDB only provides packages for 64-bit long-term support Ubuntu releases. Currently, this means 12.04 LTS (Precise Pangolin) and 14.04 LTS (Trusty Tahr). While the packages may work with other Ubuntu releases, this is not a supported configuration.
+Packages
+
+MongoDB provides officially supported packages in their own repository. This repository contains the following packages:
+mongodb-org   A metapackage that will automatically install the four component packages listed below.
+mongodb-org-server  Contains the mongod daemon and associated configuration and init scripts.
+mongodb-org-mongos  Contains the mongos daemon.
+mongodb-org-shell   Contains the mongo shell.
+mongodb-org-tools   Contains the following MongoDB tools: mongoimport bsondump, mongodump, mongoexport, mongofiles, mongooplog, mongoperf, mongorestore, mongostat, and mongotop.
+
+These packages conflict with the mongodb, mongodb-server, and mongodb-clients packages provided by Ubuntu.
+
+The default /etc/mongod.conf configuration file supplied by the packages have bind_ip set to 127.0.0.1 by default. Modify this setting as needed for your environment before initializing a replica set.
+Init Scripts
+
+The mongodb-org package includes various init scripts, including the init script /etc/init.d/mongod. You can use these scripts to stop, start, and restart daemon processes.
+
+The package configures MongoDB using the /etc/mongod.conf file in conjunction with the init scripts. See the Configuration File reference for documentation of settings available in the configuration file.
+
+As of version 3.0.4, there are no init scripts for mongos. The mongos process is used only in sharding. You can use the mongod init script to derive your own mongos init script for use in such environments. See the mongos reference for configuration details.
+Install MongoDB Community Edition
+
+MongoDB only provides packages for 64-bit long-term support Ubuntu releases. Currently, this means 12.04 LTS (Precise Pangolin) and 14.04 LTS (Trusty Tahr). While the packages may work with other Ubuntu releases, this is not a supported configuration.
+1
+Import the public key used by the package management system.
+
+The Ubuntu package management tools (i.e. dpkg and apt) ensure package consistency and authenticity by requiring that distributors sign packages with GPG keys. Issue the following command to import the MongoDB public GPG Key:
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+
+2
+Create a list file for MongoDB.
+
+Create the /etc/apt/sources.list.d/mongodb-org-3.2.list list file using the command appropriate for your version of Ubuntu:
+
+Ubuntu 12.04
+
+echo "deb http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+Ubuntu 14.04
+
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+3
+Reload local package database.
+
+Issue the following command to reload the local package database:
+
+sudo apt-get update
+
+4
+Install the MongoDB packages.
+
+You can install either the latest stable version of MongoDB or a specific version of MongoDB.
+Install the latest stable version of MongoDB.
+
+Issue the following command:
+
+sudo apt-get install -y mongodb-org
+
+Install a specific release of MongoDB.
+
+To install a specific release, you must specify each component package individually along with the version number, as in the following example:
+
+sudo apt-get install -y mongodb-org=3.0.4 mongodb-org-server=3.0.4 mongodb-org-shell=3.0.4 mongodb-org-mongos=3.0.4 mongodb-org-tools=3.0.4
+
+If you only install mongodb-org=3.0.4 and do not include the component packages, the latest version of each MongoDB package will be installed regardless of what version you specified.
+Pin a specific version of MongoDB.
+
+Although you can specify any available version of MongoDB, apt-get will upgrade the packages when a newer version becomes available. To prevent unintended upgrades, pin the package. To pin the version of MongoDB at the currently installed version, issue the following command sequence:
+
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+
+Run MongoDB Community Edition
+
+The MongoDB instance stores its data files in /var/lib/mongodb and its log files in /var/log/mongodb by default, and runs using the mongodb user account. You can specify alternate log and data file directories in /etc/mongod.conf. See systemLog.path and storage.dbPath for additional information.
+
+If you change the user that runs the MongoDB process, you must modify the access control rights to the /var/lib/mongodb and /var/log/mongodb directories to give this user access to these directories.
+1
+Start MongoDB.
+
+Issue the following command to start mongod:
+
+sudo service mongod start
+
+2
+Verify that MongoDB has started successfully
+
+Verify that the mongod process has started successfully by checking the contents of the log file at /var/log/mongodb/mongod.log for a line reading
+
+[initandlisten] waiting for connections on port <port>
+
+where <port> is the port configured in /etc/mongod.conf, 27017 by default.
+3
+Stop MongoDB.
+
+As needed, you can stop the mongod process by issuing the following command:
+
+sudo service mongod stop
+
+4
+Restart MongoDB.
+
+Issue the following command to restart mongod:
+
+sudo service mongod restart
+
+
+
+package.json
+
+{
+  "name": "cart",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-handlebars": "^3.0.0",
+    "hbs": "~3.1.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
+
+
+npm install --save mongoose
+
+{
+  "name": "cart",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-handlebars": "^3.0.0",
+    "hbs": "~3.1.0",
+    "mongoose": "^4.5.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
+
+
+mongod
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] MongoDB starting : pid=7444 port=27017 dbpath=/data/db 64-bit host=janus-P55-US3L
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] db version v3.2.7
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] git version: 4249c1d2b5999ebbf1fdf3bc0e0e3b3ff5c0aaf2
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1f 6 Jan 2014
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] modules: none
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten] build environment:
+2016-06-14T12:31:16.679+0300 I CONTROL  [initandlisten]     distmod: ubuntu1404
+2016-06-14T12:31:16.680+0300 I CONTROL  [initandlisten]     distarch: x86_64
+2016-06-14T12:31:16.680+0300 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-06-14T12:31:16.680+0300 I CONTROL  [initandlisten] options: {}
+2016-06-14T12:31:16.696+0300 E NETWORK  [initandlisten] listen(): bind() failed errno:98 Address already in use for socket: 0.0.0.0:27017
+2016-06-14T12:31:16.696+0300 E NETWORK  [initandlisten]   addr already in use
+2016-06-14T12:31:16.696+0300 E STORAGE  [initandlisten] Failed to set up sockets during startup.
+2016-06-14T12:31:16.696+0300 I CONTROL  [initandlisten] dbexit:  rc: 48
 
 
 app.js
-var expressHbs = require('express-handlebars');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+var mongoose = require('mongoose');
+var app = express();
 
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs',expressHbs({defaultLayout:'layout', extname:'.hbs'}));
-app.set('view engine', '.hbs');
-
-layouts/layout.hbs
+mongoose.connect('localhost:27017/shopping');
 
 
 
-http://fontawesome.io/?utm_source=hackernewsletter
-our new Font Awesome CDN embed code
-Входящие
-  x
-Font Awesome cdn@fontawesome.com через mg.fortawesome.com 
-  
-17:34 (5 мин. назад)
-    
-кому: мне
-Font Awesome  
-The iconic font and CSS toolkit
-Hey there! As requested, here's your … Font Awesome embed code!
-<script src="https://use.fontawesome.com/489e433250.js"></script>
-Get your icons up and running in just 2 steps!
-1   Copy this code & place in your HTML's <head>
-2   Use any of Font Awesome 605+ icons in your project's UI
- 
-Register and save time and headaches
-Configure & Edit Embed Codes
+models/product.js
 
-Want to enable or disable features like auto-accessibility, asynchronous icon loading, easy updates to newer Font Awesome versions and embed with CSS or JS? Register to set up your embed codes to match just what your site or app needs.
-Manage Multiple Embed Codes
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-Have more than one site or app that you use Font Awesome on? Us too! We'll help you keep track of where you're using Font Awesome, so you can get back to placing icons in just the right spots.
-See How You're Using Font Awesome
+var schema = new Schema({
+    imagePath: {type: String, required: true},
+    title: {type: String, required: true},
+    description: {type: String, required: true},
+    price: {type: Number, required: true},
 
-Want to see what icons you're using in your sites or apps? How about how often and where they are used? Keeping an inventory of where you've placed icons can be tough when building seems pretty handy to us.
-
-
-
-<script src="https://use.fontawesome.com/489e433250.js"></script>
-
-<ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-Shopping Cart</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User Management <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>
- User Account</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-
-  views/shop/index.hbs
-
-
-  routers/index.js
-
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('shop/index', { title: 'Shopping Cart' });
 });
 
-module.exports = router;
+
+module.exports = mongoose.model('Product', schema);
 
 
-http://getbootstrap.com/components/#thumbnailsCustom content
 
-With a bit of extra markup, it's possible to add any kind of HTML content like headings, paragraphs, or buttons into thumbnails.
-100%x200
-Thumbnail label
+seed/product-seeder.js
 
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+var Product = require('../models/product');
 
-100%x200
-Thumbnail label
+var product = new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 200
+})
 
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
-100%x200
-Thumbnail label
+var Product = require('../models/product');
 
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+var mongoose = require('mongoose');
 
-Copy
+mongoose.connect('localhost:27017/shopping');
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
-</div>
+var products = [
+ new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 200
+}),
+new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 555
+}),
+new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL 3',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 211
+}),
+new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL 4',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 222
+}),
+new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL 5',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 300
+}),
+new Product({
+    imagePath: '/images/i.jpg',
+    title: 'Sumsung XLL 6',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    price: 100
+})
+ ];
 
-views/index.hbs
+var done = 0;
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
-</div>
+ for (var i = 0; i< products.length; i++){
+    products[i].save(function(err, resukt){
+        done++;
+        if (done === products.length){
+            exit();
+        }
+    });
+ }
 
-layouts/layout.hbs
+function exit(){
+    mongoose.disconnect();
+}
 
-  <body>
-    {{> header }}
-    <div class = 'container'>
-      {{{body}}}
-    </div>
 
-views/index.hbs
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="/images/1.jpg" alt="Samsung XXL" class='img-responsive'>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class = 'clearfix'>
-            <div class='price pull-left'>$2200</div>
-            <a href="#" class="btn btn-default pull-right" role="button">Button</a> 
-            </div>
-      </div>
-    </div>
-  </div>
-   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="/images/1.jpg" alt="Samsung XXL" class='img-responsive'>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class = 'clearfix'>
-            <div class='price pull-left'>$2200</div>
-            <a href="#" class="btn btn-default pull-right" role="button">Button</a> 
-            </div>
-      </div>
-    </div>
-  </div>
-   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="/images/1.jpg" alt="Samsung XXL" class='img-responsive'>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class = 'clearfix'>
-            <div class='price pull-left'>$2200</div>
-            <a href="#" class="btn btn-default pull-right" role="button">Button</a> 
-            </div>
-      </div>
-    </div>
-  </div>
-</div>
+node seed/product-seeder.js 
+janus@janus-P55-US3L ~/github/cart/cart $ mongo
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="/images/1.jpg" alt="Samsung XXL">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-$ git status
-В ветке unit_02
-Changes not staged for commit:
-  (используйте "git add/rm <file>..." чтобы обновить данные для закрепления)
-  (используйте "git checkout -- <file>..." чтобы отменить изменения в рабочей директории)
-
-  modified:   README.md
-  modified:   cart/app.js
-  modified:   cart/package.json
-  modified:   cart/public/stylesheets/style.css
-  modified:   cart/routes/index.js
-  deleted:    cart/views/layout.hbs
-
-Несопровождаемые файлы:
-  (используйте "git add <file>..." чтобы включить то, что должно быть закреплено)
-
-  cart/public/images/
-  cart/views/layouts/
-  cart/views/partials/
-  cart/views/shop/
-
-нет изменений, добавленных в коммит (используйте "git add" и/или "git commit -a"
+use shopping
+switched to db shopping
+> db.products.find()
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d1c"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 200, "__v" : 0 }
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d1d"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL2", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 555, "__v" : 0 }
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d1e"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL 3", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 211, "__v" : 0 }
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d1f"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL 4", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 222, "__v" : 0 }
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d20"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL 5", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 300, "__v" : 0 }
+{ "_id" : ObjectId("575fdeffd0c11f981f9b8d21"), "imagePath" : "/images/i.jpg", "title" : "Sumsung XLL 6", "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "price" : 100, "__v" : 0 }
+> 

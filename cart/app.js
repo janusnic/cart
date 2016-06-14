@@ -7,9 +7,10 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var mongoose = require('mongoose');
 var app = express();
 
+mongoose.connect('localhost:27017/shopping');
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',expressHbs({defaultLayout:'layout', extname:'.hbs'}));
